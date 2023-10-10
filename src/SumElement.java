@@ -7,6 +7,7 @@
  *
  * @author Amy Zhang
  * Date: October 3, 2023
+ * Modify an array from a window
  */
 public class SumElement extends javax.swing.JFrame {
 
