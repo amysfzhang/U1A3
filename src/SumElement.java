@@ -7,7 +7,7 @@
  *
  * @author Amy Zhang
  * Date: October 3, 2023
- * Modify an array from a window
+ * Modify an array from a JFrame
  */
 public class SumElement extends javax.swing.JFrame {
 
@@ -173,7 +173,8 @@ public class SumElement extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    //returns 0 if not valid, else returns valid int
     public int validInteger(String value){
          try {
             int intValue = Integer.parseInt(value);
@@ -183,20 +184,18 @@ public class SumElement extends javax.swing.JFrame {
             }
             return intValue;
         } catch (NumberFormatException e) { 
-            lblInputError.setText("input not an Integer");
+            lblInputError.setText("Input not an Integer");
             return 0;
         }
     }
-    
+
+    //Updates text in text area txtList 
     public void updateList(int divisor, int remainder){
-        String previousText;
-        
         txtList.setText("");
         for (int x : array) {
             if (x == 0) break;
-            previousText = txtList.getText();
             if (x % divisor == remainder){
-                txtList.setText(previousText + x + "\n");
+                txtList.append(x + "\n");
             }
         }
     }
@@ -208,15 +207,16 @@ public class SumElement extends javax.swing.JFrame {
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         lblInputError.setText("");
         
-        //int valid
+        //Checks int validity
         int value = validInteger(txtInput.getText());
         if (value == 0) return;
-        
+        //Checks array range
         if (nextEmpty == 20) {
             lblInputError.setText("Array range exceeded");
             return;
         }
-        
+
+        //updates
         array[nextEmpty] = value;
         nextEmpty++;
         txtInput.setText("");
@@ -227,24 +227,24 @@ public class SumElement extends javax.swing.JFrame {
         lblInputError.setText("");
         int getRid = 0, remove;
         
-        //int valid
+        //check int validity
         remove = validInteger(txtInput.getText());
         if (remove == 0) return;
         txtInput.setText("");   
         
-        //find first instance
+        //find first appearance in array
         while (getRid < 20 && array[getRid] != remove){ 
             getRid++;
         }
         
-        //returns if int not found
+        //returns, if int not found
         if (getRid == 20) {
             lblInputError.setText("Integer not found");
             return;
         }
         array[getRid] = 0;
         
-        //goes through array, checks term above
+        //goes through array, checks if term above is 0, moves zero down  
         for (int i = 1; i < 20; i++) {
             if (array[i - 1] == 0) {
                 array[i - 1] = array[i];
