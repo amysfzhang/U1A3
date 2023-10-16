@@ -184,7 +184,7 @@ public class SumElement extends javax.swing.JFrame {
             }
             return intValue;
         } catch (NumberFormatException e) { 
-            lblInputError.setText("Input not an Integer");
+            lblInputError.setText("Input not an integer");
             return 0;
         }
     }
@@ -192,10 +192,10 @@ public class SumElement extends javax.swing.JFrame {
     //Updates text in text area txtList 
     public void updateList(int divisor, int remainder){
         txtList.setText("");
-        for (int x : array) {
-            if (x == 0) break;
-            if (x % divisor == remainder){
-                txtList.append(x + "\n");
+        for (int num : array) {
+            if (num == 0) break;
+            if (num % divisor == remainder){
+                txtList.append(num + "\n");
             }
         }
     }
@@ -258,8 +258,8 @@ public class SumElement extends javax.swing.JFrame {
     private void btnSumAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumAllActionPerformed
         int sum = 0;
         
-        for (int x : array) {
-            sum += x;
+        for (int num : array) {
+            sum += num;
         }
         txtOutput.setText("The sum of all integers is : " + sum);
         
@@ -269,8 +269,8 @@ public class SumElement extends javax.swing.JFrame {
     private void btnSumEvenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumEvenActionPerformed
         int sum = 0;
         
-        for (int x : array) {
-            if (x % 2 == 0) sum += x;
+        for (int num : array) {
+            if (num % 2 == 0) sum += num;
         }
         txtOutput.setText("The sum of all even integers is : " + sum);
 
@@ -280,8 +280,8 @@ public class SumElement extends javax.swing.JFrame {
     private void btnSumOddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumOddActionPerformed
         int sum = 0;
         
-        for (int x : array) {
-            if (x % 2 == 1) sum += x;
+        for (int num : array) {
+            if (num % 2 == 1) sum += num;
         }
         txtOutput.setText("The sum of all even integers is : " + sum);
 
