@@ -283,7 +283,7 @@ public class SumElement extends javax.swing.JFrame {
         for (int num : array) {
             if (num % 2 == 1) sum += num;
         }
-        txtOutput.setText("The sum of all even integers is : " + sum);
+        txtOutput.setText("The sum of all odd integers is : " + sum);
 
         updateList(2, 1);
     }//GEN-LAST:event_btnSumOddActionPerformed
